@@ -1,0 +1,36 @@
+------------------------------------
+3d Modelling Guideline Document v0.1
+------------------------------------
+
+By Zephyrus, 8/26/2016 (formal agreement and approval pending; ideas or suggestions welcome!)
+
+Foundations
+-----------
+Using a foundation template even as a temporary measure is a good idea; it allows you to plan and adjust on the fly the layout and composition of your project. 
+It also serves as a "buffer" zone between your building and the ground, enabling it to handle uneven or curved ground gracefully. Templates (and building models)
+should follow these standard rules for ease of programmer implementation:
+
+1: Global Positioning and Facing
+   -----------------------------
+   At position 0, 0, 0, the "front" of the building should be facing in the opposite direction to the green arrow on your transform tool. 
+   The point of origin of any building is the lowest left-hand front corner. On the provided templates that will be the corner of the foundation. 
+   That point of origin should be placed at global position 0, 0, 0. This allows the programmers to "snap" the buildings together,
+   without having to adjust for wildly different origins in terms of absolute and local co-ordinates.
+
+2: Standardized Building Tile Dimensions and Layout
+   ------------------------------------------------
+   All buildings conform to a total tile size that lines up exactly with one blender unit per tile. 
+   It can take up 2x2, 1x1, 1x2, 4x4 or even 3 tiles in an L shape, but no part of a building is permitted to exist outside of its claimed space.
+   If there is any overhang, consider claiming another tile if it's big enough, or otherwise reshaping or re-positioning the overhang. 
+   Exceptions can be made for buildings that are seperate but designed to be "socketed" together.
+   This helps to prevent clipping issues in tiles that happen to be close together.
+
+ 
+   The foundation can be of any reasonable height, but to give sufficient leeway it should be at least 0.05 units tall.
+
+3: Standard Intended Inhabitant Scale
+   ----------------------------------
+   Buildings with doors and equipment for human use should have those fittings be scaled accordingly, and all for the same size human.  
+   After some experimentation, I propose that the template human be a cube of dimensions x:0.05 y:0.05 z:0.15 blender units. 
+   Such a cube is included with each of the tile templates accompanying this document.
+

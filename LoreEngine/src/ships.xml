@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ships>
+                                                     <!--Be sure to include every attribute as shown here; Leaving any out may result in unexpected behavior or even crashes.-->
+  <ship name="Template">
+    <description value="Look! A space ship!"/>       <!--A brief sentence or two describing what they sound like/appear as.-->
+    <categories tags="joke"/>                        <!--The ship picker is designed to only allow so many ships with the same tag (default 2 per 6 ships). Only tag important features (such as if the ship is a "joke" ship, or if it's unusually friendly or hostile). -->
+    <heading x="1" y="0" z="0" speed="0.1"/>         <!--The ship's default heading; a unit vector representing the direction the ship is travelling in and the distance (in lightyears) the ship will travel in one year.-->
+    <position x="1"  y="0" z="0"/>                   <!--The starting position for this ship in lightyears; 0,0,0 represents Earth.-->
+    <target distance = "80"/>                        <!--The total distance in Lightyears needed to reach this ship's target system.-->
+    <attenuationfactor value ="0.03"/>               <!--This value (as a decimal fraction) determines how fast the signal quality will drop off with distance. 0.1=10%/lightyear; messages start degrading noticeably below 50% quality. Generally lower for higher-tech ships.-->
+    
+    <messages>                                       <!--This tag contains all the messages that the ship can send over the duration of the game.-->
+      <message id="root" delay="5" text="Hi!">       <!--The message with the ID of "root" is the one that the player ship will receive at the beginning of the game, after the delay (in years). You may have more than one root message, and each will start a new message tree.-->
+        <reply ref="temp_warm" text="Hello!"/>       <!--Reply nodes are options that the player is given after each transmission is received. After selecting a Reply, the message denoted in "ref" comes back after twice the distance between ships in years (calculated by ShipMap) plus the message's Delay value.-->
+        <reply ref="temp_cool" text="What."/>
+        <reply ref="temp_cold" text="Get lost!"/>
+        <event id="setcourse" value="player"/>       <!--Event nodes trigger events corresponding to the ID that occur when the transmission is received. Make sure to comment (like this) regarding the purpose of event ID tags, so we know what you intend. A programmer has to implement this new event, so make sure you're on the same page about it.-->
+      </message>
+      <message id="temp_warm" delay="0" text=":)">   <!--The message ID corresponds to the reference of a reply in the Root message. When that reply is selected, this message is sent back.-->
+        <event id="give_research_engine" value="2"/> <!--Transmissions can provide valuable science data, stir up dissent around your ship and various other possibilities.-->
+      </message>                                     <!--If no reply options are included, the conversation is considered terminated. There is no way to return to the conversation later in the game, so save this only for when the ship will no longer contact you for some reason. If you wish for the ship to contact you later, include a long delay into a greeting message instead.-->
+      <message id="temp_cool" delay="0" text=":|">
+      </message>
+      <message id="temp_cold" delay="0" text=":(">
+        <reply ref="" text="Screw you guys."/>       <!--Leaving the ref attribute blank has the same effect as not including a reply option, but gives the player a chance to have the "Last word", or choose to terminate a conversation on their own.-->
+        <event id="network_virus" value="1"/>
+      </message>
+      <message id="arrival" delay="0" text="Made it!"><!--Messages tagged "arrival" will be sent once the ship reaches its target distance travelled.-->
+        <event id="celebration" value="3"/>
+      </message>
+    </messages>
+  </ship>
+  
+  <ship name="Tester Ship I">
+    <description value="They boldly go where no man has gone before."/>
+    <categories tags="futuristic,friendly,silly"/>
+    <heading x="1" y="0" z="0" speed="0.1"/>
+    <position x="1"  y="0" z="0"/>
+    <target distance = "90"/>
+    <attenuationfactor value ="0.03"/>
+
+    <messages>
+      <message id="root" delay="6" text="Hi!">
+        <reply ref="temp_warm" text="Hello!"/>
+        <reply ref="temp_cool" text="What."/>
+        <reply ref="temp_cold" text="Get lost!"/>
+        <event id="setcourse" value="player"/>
+      </message>
+      <message id="temp_warm" delay="0" text=":)">
+        <event id="give_research_engine" value="2"/>
+      </message>
+      <message id="temp_cool" delay="0" text=":|">
+      </message>
+      <message id="temp_cold" delay="0" text=":(">
+        <reply ref="" text="Screw you guys."/>
+        <event id="network_virus" value="1"/>
+      </message>
+      <message id="arrival" delay="0" text="Tester Ship II made it to their destination."/>
+    </messages>
+  </ship>
+
+  <ship name="Tester Ship II">
+    <description value="They boldly go where no man has gone before."/>
+    <categories tags="futuristic,friendly,silly"/>
+    <heading x="1" y="0" z="0" speed="0.1"/>
+    <position x="1"  y="0" z="0"/>
+    <target distance = "95"/>
+    <attenuationfactor value ="0.03"/>
+
+    <messages>
+      <message id="root" delay="2" text="Hi!">
+        <reply ref="temp_warm" text="Hello!"/>
+        <reply ref="temp_cool" text="What."/>
+        <reply ref="temp_cold" text="Get lost!"/>
+        <event id="setcourse" value="player"/>
+      </message>
+      <message id="temp_warm" delay="0" text=":)">
+        <event id="give_research_engine" value="2"/>
+      </message>
+      <message id="temp_cool" delay="0" text=":|">
+      </message>
+      <message id="temp_cold" delay="0" text=":(">
+        <reply ref="" text="Screw you guys."/>
+        <event id="network_virus" value="1"/>
+      </message>
+      <message id="arrival" delay="0" text="Made it!"/>
+    </messages>
+  </ship>
+
+  <ship name="Tester Ship III">
+    <description value="They boldly go where no man has gone before."/>
+    <categories tags="futuristic,friendly,silly"/>
+    <heading x="1" y="0" z="0" speed="0.1"/>
+    <position x="1"  y="0" z="0"/>
+    <target distance = "100"/>
+    <attenuationfactor value ="0.03"/>
+
+    <messages>
+      <message id="root" delay="10" text="Hi!">
+        <reply ref="temp_warm" text="Hello!"/>
+        <reply ref="temp_cool" text="What."/>
+        <reply ref="temp_cold" text="Get lost!"/>
+        <event id="setcourse" value="player"/>
+      </message>
+      <message id="temp_warm" delay="0" text=":)">
+        <event id="give_research_engine" value="2"/>
+      </message>
+      <message id="temp_cool" delay="0" text=":|">
+      </message>
+      <message id="temp_cold" delay="0" text=":(">
+        <reply ref="" text="Screw you guys."/>
+        <event id="network_virus" value="1"/>
+      </message>
+    </messages>
+  </ship>
+  
+</ships>
+

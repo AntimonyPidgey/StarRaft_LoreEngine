@@ -1,0 +1,14 @@
+These instructions are for the purpose of creating a custom-sized square or rectangular template foundation, 
+in case the options presented are not sufficient. Templates of a non-rectangular shape (eg. L-shaped) are 
+beyond the scope of these instructions.
+
+1. Load Template_1x1.blend.
+
+2. Right-Click the foundation to select it.
+
+3. If you're not in default view, switch back to it.
+
+4. On the right-hand side of the screen you should be able to see the Transform toolbar. 
+   Locate the "Dimensions" field.
+
+5. Adjust the X and Y values in Dimensions as you see fit, to whole numbers *ONLY*.
